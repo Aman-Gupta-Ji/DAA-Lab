@@ -31,10 +31,10 @@ int main(void) {
     }
     cout<<endl;
 
-    vector<int> result(max+1,-1);
+    vector<int> result(max,-1);
     int i, j;
     for(i=0;i<n;i++) {
-        for(j=jobs[i].dead;j>=0;j--) {
+        for(j=jobs[i].dead-1;j>=0;j--) {
             if(result[j]==-1) {
                 result[j]=i;
                 break;
@@ -42,7 +42,7 @@ int main(void) {
         }
     }
     long sum=0;
-    for(i=0;i<=max;i++) {
+    for(i=0;i<max;i++) {
         cout<<i<<": ";
         if(result[i]!=-1) {
             cout<<jobs[result[i]].jo<<" = "<<jobs[result[i]].profit<<endl;
