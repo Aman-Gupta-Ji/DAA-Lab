@@ -1,5 +1,6 @@
 #include<bits/stdc++.h>
 using namespace std;
+//we cannot creat a change amount greater then the sum of the coins we have
 int NoMinChange(vector<int> coins, int n) { //Smallest non constructable value
     sort(coins.begin(),coins.end());
     int max_construct=0;
