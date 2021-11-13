@@ -2,13 +2,13 @@
 using namespace std;
 typedef vector<pair<int,pair<int,int>>> vii;
 
-int findParent(int u,vector<int> parent) {
+int findParent(int u,vector<int>& parent) {
     if(parent[u]<0) 
         return u;
     return parent[u]=findParent(parent[u],parent);
 }
 
-bool doUnion(int u, int v, vector<int> parent) {
+bool doUnion(int u, int v, vector<int>& parent) {
     int pu=findParent(u,parent);
     int pv=findParent(v,parent);
     if(pu==pv) {
