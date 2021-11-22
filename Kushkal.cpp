@@ -1,6 +1,7 @@
 #include<bits/stdc++.h>
 using namespace std;
-typedef vector<pair<int,pair<int,int>>> vii;
+typedef vector<pair<int,pair<int,int>>> vii; // to store weighted edges 
+//#define vii vector<pair<int,pair<int,int>>>
 
 int findParent(int u,vector<int>& parent) {
     if(parent[u]<0) 
@@ -30,8 +31,8 @@ vii krushals(vii g, int v) {
     vii res;
     int s, d, w;
     vector<int> parent(v,-1);
-    sort(g.begin(),g.end());
-    int E=g.size();
+    sort(g.begin(),g.end());//nlogn
+    int E=g.size();//no. of edges
     for(int i=0;i<E;i++) {
         s=g[i].second.first;
         d=g[i].second.second;
