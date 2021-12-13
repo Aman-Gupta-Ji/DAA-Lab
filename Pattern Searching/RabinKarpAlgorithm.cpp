@@ -54,7 +54,6 @@ void RabinKarp(string txt, string pat) {
         
     }
     printf("\nhits = %d\nmatch = %d\nspurious hits = %d\n",hit,match,sh);
-
 }
 
 int main(void) {
