@@ -39,8 +39,29 @@ int matMemoization(vector<int> mat, int n) {
 }
 
 int matTabulation(vector<int> mat, int n) {
-    vector<vector<int>> dp(n+1,vector<int> (n+1));
-
+    vector<vector<int>> dp(n+1,vector<int> (n+1,-1));
+    int L, i, j, k, cost;
+    for(L=1;L<=n;L++) {
+        for(i=1,j=L;j<=n;i++,j++) {
+            if(L==1) {
+                dp[i][j]=0;
+                continue;
+            }
+            dp[i][j]=INT_MAX;
+            for(k=i;k<j;k++) {
+                cost=dp[i][k]+dp[k+1][j]+mat[i-1]*mat[k]*mat[j];
+                if(cost<dp[i][j])
+                    dp[i][j]=cost;
+            }
+        }
+    }
+    for(i=0;i<=n;i++) {
+        for(j=0;j<=n;j++) {
+            cout<<dp[i][j]<<"\t";
+        }
+        cout<<endl;
+    }
+    return dp[1][n];
 }
 
 int main(void) {
@@ -51,6 +72,7 @@ int main(void) {
         cin>>temp;
         mat[i]=temp;
     }
-    int result=matRecursive(mat,1,n);
+    int result=matTabulation(mat,n);
+    cout<<endl<<result<<endl;
     return 0;
 }
