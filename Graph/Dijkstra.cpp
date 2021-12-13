@@ -77,8 +77,6 @@ int main(void)
         path(parent,j);
         cout<<":"<<dist[j]<<endl;
     }
-
-
     return 0;
 }
 /*
